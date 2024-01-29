@@ -6,6 +6,8 @@ import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
 import Notes from "./Fjnotes/Notes";
 
+const component = 'test'
+
 
 const Id = () => Math.floor(Math.random() * 1000);
 function TodoList() {
@@ -16,7 +18,7 @@ function TodoList() {
   const handleOnchange = ({ target: { value } }) =>setName(value);
   const handleOnselect= ({target:{value}})=>setGender(value);
   
-  const newData = { name, id: Id(),gender };
+  const newData = { name, id:Id(),gender };
   const handleOnsubmit = () => {
   setGender("");
     setName("");
@@ -37,3 +39,10 @@ function TodoList() {
 }
 
 export default TodoList;
+
+
+
+
+
+
+
