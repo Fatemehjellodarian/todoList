@@ -1,0 +1,14 @@
+/* .root{
+    position: relative;
+}
+
+.image-1{
+    position: absolute;
+    left:-150px
+}
+@media screen (max-width:640px) {
+    .image-1{
+        display:none;
+    }
+    
+} */

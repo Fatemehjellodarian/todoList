@@ -1,12 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client';
 import { useState } from "react";
 import InputTodo from "../FjInput/InputTodo";
 import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
 import Notes from "./Fjnotes/Notes";
 
-const component = 'test'
+
 
 
 const Id = () => Math.floor(Math.random() * 1000);
@@ -28,7 +27,6 @@ function TodoList() {
 
   return (
     <div className="inner">
-       <img className="image-1" src="https://colorlib.com/etc/regform/colorlib-regform-26/images/image-1.png" alt=""></img>
       <h1>wellcome</h1>
       <InputTodo name={name} handleOnchange={handleOnchange} />
       <Multiple  gender={gender}  handleOnselect={handleOnselect} handleOnsubmit={handleOnsubmit} />
