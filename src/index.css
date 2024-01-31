@@ -44,17 +44,16 @@ button {
   max-height: 400px;
   overflow-y: auto;
   overflow-x: hidden;
-
 }
-.root{
+.root {
   position: relative;
 }
 
-.image-1{
+.image-1 {
   position: absolute;
   top: 30px;
-  left:-170px;  z-index:10;
- 
+  left: -170px;
+  z-index: 10;
 }
 
 .formcontrol {
@@ -86,10 +85,10 @@ button {
   display: flex;
   margin-right: 7rem;
   margin-bottom: -1.25rem;
-  text-transform: uppercase;
+
   letter-spacing: 2px;
   color: rgb(118, 182, 246);
-  text-transform: uppercase;
+
   font-family: muli-semibold;
   text-shadow: #c6e5fd;
 }
@@ -156,9 +155,6 @@ li {
     width: 100%;
     background: #fff;
     margin-right: 2rem;
- 
-  
-    
   }
 
   .lable {
@@ -168,7 +164,6 @@ li {
 }
 
 @media (min-width: 640px) {
-
   body {
     background: #accffe;
   }
