@@ -1,15 +1,16 @@
 import { useState } from "react";
 import Avatar from "../components/Fjimages/Avatar";
-import TodoList from "../components/TodoList/TodoList";
+import ProfileCard from "../components/ProfileCard/ProfileCard";
+import Layout from "../components/Layout/Layout";
 
 function Container() {
   const [gender, setGender] = useState("gender");
 
   return (
-    <div>
+    <Layout>
       <Avatar gender={gender} />
-      <TodoList gender={gender} setGender={setGender} />
-    </div>
+      <ProfileCard gender={gender} setGender={setGender} />
+    </Layout>
   );
 }
 
