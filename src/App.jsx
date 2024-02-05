@@ -1,12 +1,10 @@
 import "./App.css";
 import Container from "./Container/Container";
-import TodoList from "./components/TodoList/TodoList";
-
-
+import styles from "./App.module.css";
 
 export default function App() {
   return (
-    <div className="root">
+    <div className={styles.root}>
       <Container />
     </div>
   );

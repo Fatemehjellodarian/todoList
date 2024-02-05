@@ -3,7 +3,7 @@ import Avatar from "../components/Fjimages/Avatar";
 import TodoList from "../components/TodoList/TodoList";
 
 function Container() {
-  const [gender, setGender] = useState("male");
+  const [gender, setGender] = useState("gender");
 
   return (
     <div>

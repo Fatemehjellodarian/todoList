@@ -1,10 +1,10 @@
 const Notes = ({ handleDelete, list }) => {
   return (
-    <div className="notes">
+    <div className="notes" id="notes">
       {console.log({ list })}
       {list.map(({ id, name, gender,lastName,age }) => (
-        <ul key={id} className="ul">
-          <li>
+        <ul key={id} className="list">
+          <li className="">
             <span>Name:</span>
             {name}
           </li>

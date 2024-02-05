@@ -6,6 +6,8 @@ import ButtonTodo from "../FjButton/ButtonTodo";
 import Notes from "../Fjnotes/Notes";
 import InputLastName from "../FjInput/InputLastName";
 import InputAge from "../FjInput/InputAge";
+// import { scrollToTop } from "../../scroolElement";
+
 
 const Id = () => Math.floor(Math.random() * 1000);
 export default function TodoList({ gender, setGender }) {
@@ -32,7 +34,6 @@ export default function TodoList({ gender, setGender }) {
   };
 
   const handleDelete = (id) => {
-    console.log({ id });
     setList((notes) => notes.filter((n) => n.id !== id));
   };
 
