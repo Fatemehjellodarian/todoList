@@ -52,7 +52,7 @@ export default function ProfileCard({ gender, setGender }) {
       />
       <InputAge name={age} handleOnchangeAge={handleOnchangeAge} />
       <Multiple gender={gender} handleOnselect={handleOnselect} />
-      <ButtonTodo handleOnsubmit={handleOnsubmit} name={name} />
+      <ButtonTodo handleOnsubmit={handleOnsubmit} name={name} gender={gender} age={age} lastName={lastName} />
       <Notes handleDelete={handleDelete} list={list} />
     </div>
   );
