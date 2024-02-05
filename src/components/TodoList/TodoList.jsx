@@ -1,55 +1,49 @@
 import React from "react";
 import { useState } from "react";
-import InputTodo from "../FjInput/InputTodo";
+import InputName from "../FjInput/InputName";
 import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
-import Notes from "./Fjnotes/Notes";
+import Notes from "../Fjnotes/Notes";
+import InputLastName from "../FjInput/InputLastName";
+import InputAge from "../FjInput/InputAge";
 
 const Id = () => Math.floor(Math.random() * 1000);
-export default function TodoList() {
+export default function TodoList({ gender, setGender }) {
   const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
   const [list, setList] = useState([]);
 
   const handleOnchange = ({ target: { value } }) => setName(value);
+  const handleOnchangeLastName = ({ target: { value } }) => setLastName(value);
+  const handleOnchangeAge =({target:{value}}) => setAge(value);
   const handleOnselect = ({ target: { value } }) => setGender(value);
 
-  const newData = { name, id: Id(), gender };
+  const newData = { name, gender, lastName,age };
   const handleOnsubmit = () => {
-    setGender("");
     setName("");
-    setList([...list, newData]);
+    setLastName("");
+    setAge("");
+    setGender("");
+    setList([
+      ...list,
+      { name: name, lastName: lastName, age:age , gender: gender, id: Id() },
+    ]);
   };
 
-  const handleDelete = (id) =>
+  const handleDelete = (id) => {
+    console.log({ id });
     setList((notes) => notes.filter((n) => n.id !== id));
+  };
 
   return (
     <>
-      {gender === "female" ? (
-        <img
-          className="image-1"
-          src="https://colorlib.com/etc/regform/colorlib-regform-26/images/image-1.png"
-          alt=""
-        />
-      ) : (
-        <img
-          className="image-1"
-          width="550px"
-          height="550px"
-          src="./src/assets/images/man.png"
-          alt=""
-        ></img>
-      )}
-
       <div className="inner">
         <h1>wellcome</h1>
-        <InputTodo name={name} handleOnchange={handleOnchange} />
-        <Multiple
-          gender={gender}
-          handleOnselect={handleOnselect}
-          handleOnsubmit={handleOnsubmit}
-        />
+        <InputName name={name} handleOnchange={handleOnchange} />
+        <InputLastName name={lastName} handleOnchangeLastName={handleOnchangeLastName}/>
+        <InputAge name={age} handleOnchangeAge={handleOnchangeAge} />
+        <Multiple gender={gender} handleOnselect={handleOnselect} />
         <ButtonTodo handleOnsubmit={handleOnsubmit} name={name} />
         <Notes handleDelete={handleDelete} list={list} />
       </div>

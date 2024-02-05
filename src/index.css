@@ -29,13 +29,16 @@ button {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
 }
+
 /*mine*/
 
 .inner {
@@ -45,6 +48,7 @@ button {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .root {
   position: relative;
 }
@@ -53,6 +57,13 @@ button {
   position: absolute;
   top: 30px;
   left: -170px;
+  z-index: 10;
+}
+
+.image-2 {
+  position: absolute;
+  top: 30px;
+  left: -350px;
   z-index: 10;
 }
 
@@ -66,9 +77,12 @@ button {
   color: #737272;
   font-size: 16px;
 }
+
 .input {
   border: none;
   outline: none;
+
+  padding: 0.75rem;
   border-bottom: 1.5px solid #e6e6e6;
   display: block;
   width: 100%;
@@ -92,6 +106,7 @@ button {
   font-family: muli-semibold;
   text-shadow: #c6e5fd;
 }
+
 .ButtonTodo {
   border: none;
   width: 100%;
@@ -122,35 +137,33 @@ ul {
   font-weight: bolder;
   margin-top: 3rem;
   padding: 3px 12px 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row-reverse;
 }
 
 li {
-  display: flex;
-  flex-direction: column;
+  list-style: none;
 }
 
 .onButton {
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: rgb(93, 165, 237);
   color: #fff;
+  margin-top: 1rem;
   text-transform: uppercase;
   font-family: muli-semibold;
   font-size: 15px;
   letter-spacing: 2px;
   transition: all 0.5s;
 }
+
 @media (max-width: 640px) {
   .image-1 {
     display: none;
   }
+  .image-2 {
+    display: none;
+  }
+
   .inner {
     width: 100%;
     background: #fff;
@@ -167,6 +180,7 @@ li {
   body {
     background: #accffe;
   }
+
   .inner {
     position: relative;
     width: 100%;
@@ -176,6 +190,7 @@ li {
     padding: 50px 40px 93px;
     border-radius: 7px;
   }
+
   .lable {
     margin-left: 10rem;
   }
