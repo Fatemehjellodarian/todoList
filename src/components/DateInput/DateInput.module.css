@@ -3,12 +3,12 @@
   border: none;
   outline: none;
  border-bottom: 1.5px solid #accffe;
- width: 100%;
+ width: 100%; 
   background:transparent ;
   color:rgb(132, 132, 136);
   font-size: 14px;
-  margin-bottom: 3rem;
-  margin-right:2rem;
+ margin-bottom: 2.5rem;
+
   text-transform: uppercase;
 }
  

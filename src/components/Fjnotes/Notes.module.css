@@ -1,0 +1,23 @@
+.notes{
+    display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin-right:4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(118, 182, 246);
+    font-size: 14px;
+
+}
+.deleteBtn{
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background: rgb(93, 165, 237);
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.5s;
+    margin-top: 1rem;
+   
+}

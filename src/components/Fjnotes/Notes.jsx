@@ -1,16 +1,16 @@
 // import { scrollFn } from "../../helpers/scrollFuncs";
 
 import { useEffect } from "react";
-
+import style  from "./Notes.module.css";
  const Notes = ({ handleDelete, list }) => {
 
 
   // scrollFn();
   return (
-    <div className="notes" id="notes">
+    <div  id="notes">
       {console.log({ list })}
       {list.map(({ id, name, gender,lastName,age }) => (
-        <ul key={id} className="list">
+        <ul key={id} className={style.notes}>
           <li className="">
             <span>Name:</span>
             {name}
@@ -25,7 +25,7 @@ import { useEffect } from "react";
             <span className="gender">Gender:</span>
             {gender}
           </li>
-          <button className="onButton" onClick={() => handleDelete(id)}>
+          <button className={style.deleteBtn} onClick={() => handleDelete(id)}>
             X
           </button>
         </ul>

@@ -1,18 +1,16 @@
-.inner{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+ .inner{
+
     align-items: start;
     width: 100%;
    
 
     
-}
+} 
 h1 {
     color: rgb(118, 182, 246);
     text-transform: uppercase;
     font-family: muli-semibold;
     text-shadow: #c6e5fd;
-    margin-bottom:6rem;
+    margin-bottom:2rem;
     
   }

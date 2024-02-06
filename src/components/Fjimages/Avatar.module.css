@@ -1,19 +1,29 @@
- .avatarView {
-  position:absolute;
+/* .avatarView {
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+} */
+
 
 .female {
-
-  padding: 50px;
+  position:absolute;
+  left:470px;
+  top:25px;
+  width:50px;
 
 }
 
 .male {
-
-  padding: 50px;
- 
+  position:absolute;
+  left:430px;
+bottom:335px;
+  width:120px;
 } 
+
+@media (max-width:640px){
+  .female {
+   display: none;
+  }
+  
+  .male {
+display: none;
+  } 
+}
