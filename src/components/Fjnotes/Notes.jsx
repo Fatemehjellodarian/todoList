@@ -1,4 +1,11 @@
-const Notes = ({ handleDelete, list }) => {
+// import { scrollFn } from "../../helpers/scrollFuncs";
+
+import { useEffect } from "react";
+
+ const Notes = ({ handleDelete, list }) => {
+
+
+  // scrollFn();
   return (
     <div className="notes" id="notes">
       {console.log({ list })}

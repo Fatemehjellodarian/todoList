@@ -1,18 +1,19 @@
-.avatarView {
-  border: 5px solid chartreuse;
+ .avatarView {
+  position:absolute;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .female {
-  background-color: red;
+
   padding: 50px;
-  border: 1px solid black;
+
 }
 
 .male {
-  background-color: blue;
+
   padding: 50px;
-  border: 1px solid black;
-}
+ 
+} 

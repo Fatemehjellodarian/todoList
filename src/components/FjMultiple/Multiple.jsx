@@ -1,3 +1,4 @@
+import style from "./Multiple.module.css";
 const Multiple = ({ gender, handleOnselect }) => {
 
 
@@ -8,10 +9,10 @@ const Multiple = ({ gender, handleOnselect }) => {
   ];
 
   return (
-    <div>
-      <label className="lable">click here</label>
+    <div className={style.formcontrol} >
+      <label className={style.label}>click here</label>
       <select
-        className="formcontrol"
+      className={style.multiple}
         id="select"
         value={gender}
         onChange={handleOnselect}

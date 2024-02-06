@@ -7,9 +7,10 @@ import Notes from "../Fjnotes/Notes";
 // import InputLastName from "../FjInput/InputLastName";
 import InputAge from "../DateInput/InputAge";
 import { idGenerator } from "../../helpers/funcs";
-//  import styles from "./ProfileCard.module.css";
+  import styles from "./ProfileCard.module.css";
 
 export default function ProfileCard({ gender, setGender }) {
+
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
@@ -22,6 +23,7 @@ export default function ProfileCard({ gender, setGender }) {
 
   const newData = { name, gender, lastName, age };
   const handleOnsubmit = () => {
+    
     setName("");
     setLastName("");
     setAge("");
@@ -33,17 +35,20 @@ export default function ProfileCard({ gender, setGender }) {
         lastName: lastName,
         age: age,
         gender: gender,
-        id: idGenerator,
+        id: idGenerator(),
       },
     ]);
+    
+  
   };
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));
 
+  
   return (
-    <div className="inner">
-      <h1>wellcome</h1>
+    <div className={styles.inner}>
+      <h1 className={styles.h1}>wellcome</h1>
       <Input value={name} onChange={handleOnchange} placeholder="NAME" />
       <Input
         value={lastName}
