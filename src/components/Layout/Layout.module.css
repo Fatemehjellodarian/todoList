@@ -20,7 +20,7 @@ body {
 }
 
 @media (max-width: 640px) {
-  .layout {S
+  .layout {
     width: 100%;
     background-color: #fff;
     border-radius: 12px;
