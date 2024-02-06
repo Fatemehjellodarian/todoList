@@ -65,7 +65,8 @@ export default function ProfileCard({ gender, setGender }) {
           lastName={lastName}
         />
       ) : (
-        <button className={styles.disable}>save</button>
+        <button className={styles.disable}></button>
+        
       )}
 
       <Notes handleDelete={handleDelete} list={list} />
