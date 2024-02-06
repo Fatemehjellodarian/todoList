@@ -1,13 +1,9 @@
-// import { scrollFn } from "../../helpers/scrollFuncs";
 
-import { useEffect } from "react";
+
 import style  from "./Notes.module.css";
  const Notes = ({ handleDelete, list }) => {
-
-
-  // scrollFn();
   return (
-    <div  id="notes">
+    <div  className="notes" >
       {console.log({ list })}
       {list.map(({ id, name, gender,lastName,age }) => (
         <ul key={id} className={style.notes}>
