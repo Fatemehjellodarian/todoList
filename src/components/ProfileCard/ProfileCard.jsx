@@ -8,6 +8,10 @@ import InputAge from "../DateInput/InputAge";
 import { idGenerator } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
+const canSubmit_V2 = ({ name, gender, age, lastName }) => {
+  return name && gender && age && lastName;
+};
+
 export default function ProfileCard({ gender, setGender }) {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -39,8 +43,14 @@ export default function ProfileCard({ gender, setGender }) {
   };
 
   useEffect(() => {
-    document.querySelector(".notes").scrollIntoView();
+    document.getElementById("notes").scrollIntoView();
+    console.log("SCROLL RENDERED!");
   }, [list]);
+
+  // useEffect(() => {
+  //   document.querySelector(".notes").scrollIntoView();
+  //   console.log("SCROLL RENDERED!");
+  // }, []);
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));
@@ -56,7 +66,7 @@ export default function ProfileCard({ gender, setGender }) {
       />
       <InputAge name={age} handleOnchangeAge={handleOnchangeAge} />
       <Multiple gender={gender} handleOnselect={handleOnselect} />
-      {name && gender && age && lastName ? (
+      {canSubmit_V2({ name, gender, age, lastName }) ? (
         <ButtonTodo
           handleOnsubmit={handleOnsubmit}
           name={name}
@@ -66,7 +76,6 @@ export default function ProfileCard({ gender, setGender }) {
         />
       ) : (
         <button className={styles.disable}></button>
-        
       )}
 
       <Notes handleDelete={handleDelete} list={list} />
