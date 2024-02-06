@@ -4,17 +4,11 @@ import Input from "../FjInput/Input";
 import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
 import Notes from "../Fjnotes/Notes";
-// import InputLastName from "../FjInput/InputLastName";
 import InputAge from "../DateInput/InputAge";
 import { idGenerator } from "../../helpers/funcs";
-  import styles from "./ProfileCard.module.css";
-// import { scrollFn } from "../../helpers/scrollFuncs";
+import styles from "./ProfileCard.module.css";
 
 export default function ProfileCard({ gender, setGender }) {
-  // scrollFn();
-
-  
-
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
@@ -27,12 +21,11 @@ export default function ProfileCard({ gender, setGender }) {
 
   const newData = { name, gender, lastName, age };
   const handleOnsubmit = () => {
-    
     setName("");
     setLastName("");
     setAge("");
     setGender("");
-    
+
     setList([
       ...list,
       {
@@ -43,19 +36,15 @@ export default function ProfileCard({ gender, setGender }) {
         id: idGenerator(),
       },
     ]);
-    
-    
-  
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     document.querySelector(".notes").scrollIntoView();
-  },[list]);
+  }, [list]);
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));
 
-  
   return (
     <div className={styles.inner}>
       <h1 className={styles.h1}>wellcome</h1>
@@ -67,7 +56,13 @@ export default function ProfileCard({ gender, setGender }) {
       />
       <InputAge name={age} handleOnchangeAge={handleOnchangeAge} />
       <Multiple gender={gender} handleOnselect={handleOnselect} />
-      <ButtonTodo handleOnsubmit={handleOnsubmit} name={name} gender={gender} age={age} lastName={lastName} />
+      <ButtonTodo
+        handleOnsubmit={handleOnsubmit}
+        name={name}
+        gender={gender}
+        age={age}
+        lastName={lastName}
+      />
       <Notes handleDelete={handleDelete} list={list} />
     </div>
   );

@@ -1,4 +1,4 @@
-import style from "./Input.module.css"
+import style from "./Input.module.css";
 const Input = ({ placeholder, onChange, value }) => {
   return (
     <input

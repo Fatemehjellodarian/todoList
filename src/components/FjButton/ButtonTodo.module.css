@@ -1,14 +1,14 @@
-.buttonTodo{
-    border: none;
-    width: 100%;
-    height: 45px;
-    cursor: pointer;
-    background: rgb(93, 165, 237);
-    color: #fff;
-    text-transform: uppercase;
-    font-family: muli-semibold;
-    font-size: 15px;
-    letter-spacing: 2px;
-    transition: all 0.5s;
-    border-radius:5px;
+.buttonTodo {
+  border: none;
+  width: 100%;
+  height: 45px;
+  cursor: pointer;
+  background: rgb(93, 165, 237);
+  color: #fff;
+  text-transform: uppercase;
+  font-family: muli-semibold;
+  font-size: 15px;
+  letter-spacing: 2px;
+  transition: all 0.5s;
+  border-radius: 5px;
 }
