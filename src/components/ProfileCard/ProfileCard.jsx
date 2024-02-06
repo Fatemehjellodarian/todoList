@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Input from "../FjInput/Input";
 import Multiple from "../FjMultiple/Multiple";
@@ -8,8 +8,12 @@ import Notes from "../Fjnotes/Notes";
 import InputAge from "../DateInput/InputAge";
 import { idGenerator } from "../../helpers/funcs";
   import styles from "./ProfileCard.module.css";
+// import { scrollFn } from "../../helpers/scrollFuncs";
 
 export default function ProfileCard({ gender, setGender }) {
+  // scrollFn();
+
+  
 
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -28,6 +32,7 @@ export default function ProfileCard({ gender, setGender }) {
     setLastName("");
     setAge("");
     setGender("");
+    
     setList([
       ...list,
       {
@@ -39,8 +44,13 @@ export default function ProfileCard({ gender, setGender }) {
       },
     ]);
     
+    
   
   };
+
+  useEffect(()=>{
+    document.querySelector(".notes").scrollIntoView();
+  },[list]);
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));
