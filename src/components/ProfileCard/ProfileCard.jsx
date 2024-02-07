@@ -11,6 +11,7 @@ import styles from "./ProfileCard.module.css";
 const canSubmit_V2 = ({ name, gender, age, lastName }) => {
   return name && gender && age && lastName;
 };
+const element = document.getElementById("notes");
 
 export default function ProfileCard({ gender, setGender }) {
   const [name, setName] = useState("");
@@ -40,17 +41,18 @@ export default function ProfileCard({ gender, setGender }) {
         id: idGenerator(),
       },
     ]);
+    console.log(list);
   };
 
-  useEffect(() => {
-    document.getElementById("notes").scrollIntoView();
-    console.log("SCROLL RENDERED!");
-  }, [list]);
+  useEffect(()=>{
+    document.getElementById("notes"); window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+  },[list])
 
   // useEffect(() => {
-  //   document.querySelector(".notes").scrollIntoView();
-  //   console.log("SCROLL RENDERED!");
-  // }, []);
+  //   document.getElementById("notes").scrollIntoView({behavior:"smooth"});
+  // }, [list]);
+
+
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));

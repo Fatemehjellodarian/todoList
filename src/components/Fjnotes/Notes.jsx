@@ -2,7 +2,6 @@ import style from "./Notes.module.css";
 const Notes = ({ handleDelete, list }) => {
   return (
     <div id="notes">
-      {console.log(list.length)}
       {list.map(({ id, name, gender, lastName, age }) => (
         <ul key={id} className={style.notes}>
           <li className="">
