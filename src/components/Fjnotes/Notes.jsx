@@ -1,9 +1,9 @@
 import style from "./Notes.module.css";
-const Notes = ({ handleDelete, list,container }) => {
+const Notes = ({ handleDelete, list }) => {
   return (
-    <div ref={container}>
+    <div >
       {list.map(({ id, name, gender, lastName, age }) => (
-        <ul key={id} className={style.notes}>
+        <ul key={id} className={style.notes} >
           <li className="">
             <span>Name:</span>
             {name}
