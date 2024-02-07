@@ -55,14 +55,14 @@
  // document.getElementById("notes").scrollIntoView({behavior:"smooth"});
  // }, [list]);
 
-//  const scrollHandler =(container)=>{
-//   window.scrollTo({top:container.current,behavior:"smooth"})
-//  }
+  // const scrollHandler =()=>{
+  //   container.current.scrollTo({top:container.current.scrollHeight,behavior:"smooth"});
+  // }
 
-useEffect(()=>{
-  container.current.scrollTo()
-  console.log("hihdihfif");
-},[list]);
+ useEffect(()=>{
+   container.current.scrollTo({top:container.current.scrollHeight,behavior:"smooth"})
+ 
+ },[list]);
 
 
  const handleDelete = (id) =>
@@ -87,10 +87,12 @@ useEffect(()=>{
  gender={gender}
  age={age}
  lastName={lastName} 
+
  />
  ) : (
  <button className={styles.disable}></button>
  )}
+ {/* <button onClick={scrollHandler}>scroll</button> */}
 
  <Notes handleDelete={handleDelete} list={list}   />
  </div>

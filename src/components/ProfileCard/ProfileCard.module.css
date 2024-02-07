@@ -1,6 +1,9 @@
 .inner {
   align-items: start;
   width: 100%;
+  height: 480px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 h1 {
   color: rgb(118, 182, 246);
