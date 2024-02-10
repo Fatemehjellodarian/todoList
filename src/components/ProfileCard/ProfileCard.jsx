@@ -21,6 +21,7 @@ export default function ProfileCard({ gender, setGender }) {
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
   const [list, setList] = useState([]);
+  console.log(list);
 
   const handleOnchange = ({ target: { value } }) => setName(value);
   const handleOnchangeLastName = ({ target: { value } }) => setLastName(value);
@@ -56,11 +57,25 @@ export default function ProfileCard({ gender, setGender }) {
   // }, [list]);
 
   useEffect(() => {
-    scrollWithParams({
-      container,
-      top: container.current.scrollHeight,
-      behavior: "smooth",
-    });
+    const temp = (listLength) => {
+      if (listLength === 0) return 0;
+      if (listLength === 1) return 450;
+      if (listLength > 1) return 450 + (listLength - 1) * 300;
+    };
+
+    //     // scrollWithParams({
+    //     //   container,
+    //     //   top: container.current.scrollHeight,
+    //     //   behavior: "smooth",
+    //     // });
+    //     const scrollStatus = ()=> {
+    //       return( list.length* );
+    // }
+    //     //  list.length * 450;
+    //     // console.log({ scrollStatus });
+    //     // console.log(`${%c} ${list.length}`, 'background: #222; color: #bada55');
+    //     console.log("SCROLLED");
+    container.current.scrollTo(0, temp(list?.length));
   }, [list]);
 
   const handleDelete = (id) =>
@@ -68,7 +83,7 @@ export default function ProfileCard({ gender, setGender }) {
 
   return (
     <div className={styles.inner} ref={container}>
-      <h1 className={styles.h1}>wellcome</h1>
+      <h1 className={styles.h1}>welcome</h1>
       <Input value={name} onChange={handleOnchange} placeholder="NAME" />
       <Input
         value={lastName}

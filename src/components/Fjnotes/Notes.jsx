@@ -1,9 +1,9 @@
-import style from "./Notes.module.css";
+import styles from "./Notes.module.css";
 const Notes = ({ handleDelete, list }) => {
   return (
-    <div >
+    <div id="notes">
       {list.map(({ id, name, gender, lastName, age }) => (
-        <ul key={id} className={style.notes} >
+        <ul key={id} className={styles.notes}>
           <li className="">
             <span>Name:</span>
             {name}
@@ -18,7 +18,7 @@ const Notes = ({ handleDelete, list }) => {
             <span className="gender">Gender:</span>
             {gender}
           </li>
-          <button className={style.deleteBtn} onClick={() => handleDelete(id)}>
+          <button className={styles.deleteBtn} onClick={() => handleDelete(id)}>
             X
           </button>
         </ul>
