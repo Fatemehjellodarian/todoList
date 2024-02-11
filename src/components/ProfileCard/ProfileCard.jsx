@@ -5,7 +5,7 @@ import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
 import Notes from "../Fjnotes/Notes";
 import InputAge from "../DateInput/InputAge";
-import { idGenerator } from "../../helpers/funcs";
+import { idGenerator, scrollStatus } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
 import { scrollWithParams } from "../../helpers/funcs";
@@ -59,26 +59,21 @@ export default function ProfileCard({ gender, setGender }) {
   // scrollWithId({behavior:"smooth"});
   // }, [list]);
 
+  
+
   useEffect(() => {
-    const temp = (listLength) => {
-      if (listLength === 0) return 0;
-      if (listLength === 1) return 450;
-      if (listLength > 1) return 450 + (listLength - 1) * 300;
-    };
+    
+        container.current.scrollTo(0, scrollStatus(list?.length));
 
     //     // scrollWithParams({
     //     //   container,
     //     //   top: container.current.scrollHeight,
     //     //   behavior: "smooth",
     //     // });
-    //     const scrollStatus = ()=> {
-    //       return( list.length* );
-    // }
+  
     //     //  list.length * 450;
     //     // console.log({ scrollStatus });
     //     // console.log(`${%c} ${list.length}`, 'background: #222; color: #bada55');
-    //     console.log("SCROLLED");
-    container.current.scrollTo(0, temp(list?.length));
   }, [list]);
 
   const handleDelete = (id) =>
