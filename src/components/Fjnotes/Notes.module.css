@@ -8,11 +8,10 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: rgb(118, 182, 246);
   font-size: 14px;
-
-  margin: 150px 0;
   height: 150px;
-  border: 4px solid black;
+  margin-right:70px;
 }
+
 .deleteBtn {
   border: none;
   cursor: pointer;
@@ -20,5 +19,5 @@
   background: rgb(93, 165, 237);
   color: #fff;
   font-size: 15px;
-  margin-top: 1rem;
+  margin-top:16px;
 }
