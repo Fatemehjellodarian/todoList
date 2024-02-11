@@ -46,14 +46,9 @@
  };
 
   // useEffect(()=>{
-  //  scrollTo
-  // //  document.getElementById("notes"); window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+  //   document.getElementById("notes"); window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
   //  container.current.scrollIntoView({ behavior: "smooth", block: "end" });
-  // },[list])
-
-  // useEffect(() => {
- // document.getElementById("notes").scrollIntoView({behavior:"smooth"});
- // }, [list]);
+  // },[list]);
 
   // const scrollHandler =()=>{
   //   container.current.scrollTo({top:container.current.scrollHeight,behavior:"smooth"});
@@ -71,7 +66,7 @@
  return (
   
  <div className={styles.inner} ref={container} >
- <h1 className={styles.h1}>wellcome</h1>
+ <h1 className={styles.h1}>welcome</h1>
  <Input value={name} onChange={handleOnchange} placeholder="NAME" />
  <Input
  value={lastName}
