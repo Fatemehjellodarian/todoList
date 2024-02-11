@@ -50,7 +50,7 @@ export default function ProfileCard({ gender, setGender }) {
   };
 
   useEffect(() => {
-    // scrollWithId({ behavior: "smooth", block: "end" });
+
     //  scrollWithRef({container, block:"end" ,behavior:"smooth"});
     //   scrollStatus(container.current.scrollTo(0,scrollStatus(list.length)));
     //   scrollWithParams({
