@@ -5,13 +5,7 @@ import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
 import Notes from "../Fjnotes/Notes";
 import InputAge from "../DateInput/InputAge";
-import {
-  idGenerator,
-  scrollStatus,
-  scrollWithId,
-  scrollWithParams,
-  scrollWithRef,
-} from "../../helpers/funcs";
+import { idGenerator, scrollWithRef } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
 const canSubmit_V2 = ({ name, gender, age, lastName }) => {
@@ -49,15 +43,25 @@ export default function ProfileCard({ gender, setGender }) {
     ]);
   };
 
-  useEffect(() => {
+  const scrollingMethods = ({ container, top, behavior,block,listLength, }) => {
+    if (container && top && behavior) {
+      scrollWithParams({ container, top, behavior });
+    }
 
-    //  scrollWithRef({container, block:"end" ,behavior:"smooth"});
-    //   scrollStatus(container.current.scrollTo(0,scrollStatus(list.length)));
-    //   scrollWithParams({
-    //     container,
-    //     top: container.current.scrollHeight,
-    //     behavior: "smooth",
-    //   });
+    if (behavior) {
+      scrollWithId({ behavior });
+    }
+
+    if (container && behavior && block) {
+      scrollWithRef({ container, behavior, block });
+    }
+
+    return scrollStatus(listLength);
+   
+  };
+ console.log(scrollingMethods());
+  useEffect(() => {
+    scrollWithRef({ container, block: "end", behavior: "smooth" });
   }, [list]);
 
   const handleDelete = (id) =>
