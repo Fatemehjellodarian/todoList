@@ -1,67 +1,90 @@
- import React, { useEffect, useRef } from "react";
- import { useState } from "react";
- import Input from "../FjInput/Input";
- import Multiple from "../FjMultiple/Multiple";
- import ButtonTodo from "../FjButton/ButtonTodo";
- import Notes from "../Fjnotes/Notes";
- import InputAge from "../DateInput/InputAge";
- import { idGenerator } from "../../helpers/funcs";
- import styles from "./ProfileCard.module.css";
+import React, { useEffect, useRef } from "react";
+import { useState } from "react";
+import Input from "../FjInput/Input";
+import Multiple from "../FjMultiple/Multiple";
+import ButtonTodo from "../FjButton/ButtonTodo";
+import Notes from "../Fjnotes/Notes";
+import InputAge from "../DateInput/InputAge";
+import { idGenerator } from "../../helpers/funcs";
+import styles from "./ProfileCard.module.css";
 
- const canSubmit_V2 = ({ name, gender, age, lastName }) => {
- return name && gender && age && lastName;
- };
- const element = document.getElementById("notes");
+import { scrollWithParams } from "../../helpers/funcs";
 
- export default function ProfileCard({ gender, setGender }) {
- const [name, setName] = useState("");
- const container = useRef(null)
- const [lastName, setLastName] = useState("");
- const [age, setAge] = useState("");
- const [list, setList] = useState([]);
+const canSubmit_V2 = ({ name, gender, age, lastName }) => {
+  return name && gender && age && lastName;
+};
+const element = document.getElementById("notes");
 
- const handleOnchange = ({ target: { value } }) => setName(value);
- const handleOnchangeLastName = ({ target: { value } }) => setLastName(value);
- const handleOnchangeAge = ({ target: { value } }) => setAge(value);
- const handleOnselect = ({ target: { value } }) => setGender(value);
+export default function ProfileCard({ gender, setGender }) {
+  const [name, setName] = useState("");
+  const container = useRef(null);
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
+  const [list, setList] = useState([]);
+  console.log(list);
 
- const newData = { name, gender, lastName, age };
- const handleOnsubmit = () => {
- setName("");
- setLastName("");
- setAge("");
- setGender("");
+  const handleOnchange = ({ target: { value } }) => setName(value);
+  const handleOnchangeLastName = ({ target: { value } }) => setLastName(value);
+  const handleOnchangeAge = ({ target: { value } }) => setAge(value);
+  const handleOnselect = ({ target: { value } }) => setGender(value);
 
- setList([
- ...list,
- {
- name: name,
- lastName: lastName,
- age: age,
- gender: gender,
- id: idGenerator(),
- },
- ]);
- console.log(list);
- };
+  const newData = { name, gender, lastName, age };
+  const handleOnsubmit = () => {
+    setName("");
+    setLastName("");
+    setAge("");
+    setGender("");
+
+    setList([
+      ...list,
+      {
+        name: name,
+        lastName: lastName,
+        age: age,
+        gender: gender,
+        id: idGenerator(),
+      },
+    ]);
+    console.log(list);
+  };
 
   // useEffect(()=>{
   //   document.getElementById("notes"); window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
   //  container.current.scrollIntoView({ behavior: "smooth", block: "end" });
   // },[list]);
+  // scrollWithRef({container, block:"end" ,behavior:"smooth"});
+  // },[list])
 
-  // const scrollHandler =()=>{
-  //   container.current.scrollTo({top:container.current.scrollHeight,behavior:"smooth"});
-  // }
+  // useEffect(() => {
+  // scrollWithId({behavior:"smooth"});
+  // }, [list]);
 
- useEffect(()=>{
-   container.current.scrollTo({top:container.current.scrollHeight,behavior:"smooth"})
- 
- },[list]);
+  useEffect(() => {
+    const temp = (listLength) => {
+      if (listLength === 0) return 0;
+      if (listLength === 1) return 450;
+      if (listLength > 1) return 450 + (listLength - 1) * 300;
+    };
+
+    //     // scrollWithParams({
+    //     //   container,
+    //     //   top: container.current.scrollHeight,
+    //     //   behavior: "smooth",
+    //     // });
+    //     const scrollStatus = ()=> {
+    //       return( list.length* );
+    // }
+    //     //  list.length * 450;
+    //     // console.log({ scrollStatus });
+    //     // console.log(`${%c} ${list.length}`, 'background: #222; color: #bada55');
+    //     console.log("SCROLLED");
+    container.current.scrollTo(0, temp(list?.length));
+  }, [list]);
+
+  const handleDelete = (id) =>
+    setList((notes) => notes.filter((n) => n.id !== id));
 
 
- const handleDelete = (id) =>
- setList((notes) => notes.filter((n) => n.id !== id));
 
  return (
   
@@ -92,5 +115,6 @@
  <Notes handleDelete={handleDelete} list={list}   />
  </div>
  );
- }
+ 
 
+}
