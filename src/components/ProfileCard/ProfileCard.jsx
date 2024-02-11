@@ -9,6 +9,8 @@ import { idGenerator, scrollStatus } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
 import { scrollWithParams } from "../../helpers/funcs";
+import { scrollWithId } from "../../helpers/funcs";
+import { scrollWithRef } from "../../helpers/funcs";
 
 const canSubmit_V2 = ({ name, gender, age, lastName }) => {
   return name && gender && age && lastName;
@@ -48,28 +50,42 @@ export default function ProfileCard({ gender, setGender }) {
     console.log(list);
   };
 
-  // useEffect(()=>{
-  //   document.getElementById("notes"); window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
-  //  container.current.scrollIntoView({ behavior: "smooth", block: "end" });
-  // },[list]);
-  // scrollWithRef({container, block:"end" ,behavior:"smooth"});
-  // },[list])
 
-  // useEffect(() => {
-  // scrollWithId({behavior:"smooth"});
-  // }, [list]);
+
+  //  container.current.scrollIntoView({ behavior: "smooth", block: "end" });
 
   
 
-  useEffect(() => {
-    
-        container.current.scrollTo(0, scrollStatus(list?.length));
+ 
 
-    //     // scrollWithParams({
-    //     //   container,
-    //     //   top: container.current.scrollHeight,
-    //     //   behavior: "smooth",
-    //     // });
+  
+  const scrollMethods = () => {
+    if (scrollWithId) {
+    }
+    if (scrollWithRef) {
+   
+    }
+    if (scrollStatus) {
+    
+    }
+    if (scrollWithParams) {
+  
+    }
+  };
+  
+      
+
+
+
+  useEffect(() => {
+    // scrollWithId({ behavior: "smooth" });
+    // scrollWithRef({container, block:"end" ,behavior:"smooth"});
+    //  container.current.scrollTo(0,scrollStatus(list.length));
+   scrollWithParams({
+     container,
+     top: container.current.scrollHeight,
+     behavior: "smooth",
+   });
   
     //     //  list.length * 450;
     //     // console.log({ scrollStatus });
@@ -110,6 +126,4 @@ export default function ProfileCard({ gender, setGender }) {
  <Notes handleDelete={handleDelete} list={list}   />
  </div>
  );
- 
-
-}
+   }

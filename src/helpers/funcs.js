@@ -6,44 +6,18 @@ export const scrollWithParams = ({ container, top, behavior }) => {
     behavior: behavior,
   });
 };
-
-
- export const scrollingMethods = ()=>{
-  return
-  if (scrollWithId) {
-     scrollWithId({behavior:"smooth"});
-    
-  }
-  if (scrollWithRef) {
-    container.current.scrollIntoView({ behavior:behavior, block: block });
-    
-  }
-  if (scrollStatus) {
-       if (listLength === 0) return 0;
-   if (listLength === 1) return 450;
-   if (listLength > 1) return 450 + (listLength - 1) * 300;}
-   
-    return scrollWithParams();
-
-
-    
-  }
-    
-      
-    
-
-  
-
-
   export const scrollWithId = ({behavior})=>{
    document.getElementById("notes").scrollIntoView({behavior:behavior});}
 
-// //  }
   export const scrollWithRef = ({container,behavior,block})=>{
       container.current.scrollIntoView({ behavior:behavior, block: block });
   }
 
-   export const scrollStatus = (listLength) => {
+   export const scrollStatus = (listLength,container) => {
    if (listLength === 0) return 0;
    if (listLength === 1) return 450;
-   if (listLength > 1) return 450 + (listLength - 1) * 300;}
+   if (listLength > 1) return 450 + (listLength - 1) * 300;
+   container.current.scrollTo(0, scrollStatus(list?.length));
+
+  
+  }
