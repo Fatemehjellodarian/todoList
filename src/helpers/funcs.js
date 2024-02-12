@@ -12,7 +12,7 @@ export const scrollToLastItem = ({
     if (listLength > 1) return 450 + (listLength - 1) * 300;
   };
 
-  if (scrollType === "scrollWithRef" ) {
+  if ( scrollType === "scrollWithRef") {
     container.current.scrollIntoView({
       behavior,
       block: "end",
@@ -34,3 +34,14 @@ export const scrollToLastItem = ({
 
   return;
 };
+
+
+// function isPrimitive(behavior) {
+//   if (typeof behavior === "smooth") {
+    
+//   }
+//   // return behavior ===  "smooth" || typeof behavior === "instance" &&
+//   //   typeof behavior === "auto";
+    
+// }
+
