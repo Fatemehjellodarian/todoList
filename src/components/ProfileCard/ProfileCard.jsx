@@ -5,7 +5,7 @@ import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
 import Notes from "../Fjnotes/Notes";
 import InputAge from "../DateInput/InputAge";
-import { idGenerator, scrollStatus, scrollWithParams, scrollWithRef } from "../../helpers/funcs";
+import { idGenerator, scrollToLastItem } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
 const canSubmit_V2 = ({ name, gender, age, lastName }) => {
@@ -14,7 +14,7 @@ const canSubmit_V2 = ({ name, gender, age, lastName }) => {
 
 export default function ProfileCard({ gender, setGender }) {
   const [name, setName] = useState("");
-  const container = useRef(null);
+  const containerRef = useRef(null);
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
   const [list, setList] = useState([]);
@@ -43,24 +43,19 @@ export default function ProfileCard({ gender, setGender }) {
     ]);
   };
 
-
-
   useEffect(() => {
-  
-    //  scrollWithRef({container, block:"end" ,behavior:"smooth"});
-      scrollStatus(container.current.scrollTo(0,scrollStatus(list?.length)));
-    //  scrollWithParams({
-    //    container,
-    //    top: container.current.scrollHeight,
-    //    behavior: "smooth",
-    //  });
+    scrollToLastItem({
+      container: containerRef,
+      scrollType: "scrollWithParams",
+      behavior: "smooth",
+      listLength: list.length});
   }, [list]);
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));
 
   return (
-    <div className={styles.inner} ref={container}>
+    <div className={styles.inner} ref={containerRef}>
       <h1 className={styles.h1}>welcome</h1>
       <Input value={name} onChange={handleOnchange} placeholder="NAME" />
       <Input
