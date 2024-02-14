@@ -47,12 +47,14 @@ export default function ProfileCard({ gender, setGender }) {
   
 
   useEffect(() => {
-    
-    scrollToLastItem({
-      container: containerRef,
-      scrollType: "scrollWithParams",
-      behavior: "smooth",
-      listLength: list.length});
+    if (list.length) {
+      scrollToLastItem({
+        container: containerRef,
+        scrollType: "scrollWithId",
+        behavior: "smooth",
+        listLength: list.length,
+      });
+    }
   }, [list]);
 
   const handleDelete = (id) =>
