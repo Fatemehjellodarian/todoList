@@ -43,9 +43,6 @@ export default function ProfileCard({ gender, setGender }) {
     ]);
   };
 
-
-  
-
   useEffect(() => {
     if (list.length) {
       scrollToLastItem({

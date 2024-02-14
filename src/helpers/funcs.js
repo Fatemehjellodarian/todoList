@@ -1,7 +1,5 @@
 export const idGenerator = () => Math.floor(Math.random() * 1000);
 
-
-
 // export const scrollToLastItem = ({
 //   container,
 //   scrollType,
@@ -47,10 +45,8 @@ export const idGenerator = () => Math.floor(Math.random() * 1000);
 //     return console.log(" behavior مناسب نیس");
 //   }
 
-
 //   return;
 // };
- 
 
 export const scrollToLastItem = ({
   container,
@@ -88,20 +84,15 @@ export const scrollToLastItem = ({
       });
     }
   } else {
-   
-    throw Error ("type error")
+    throw Error("type error");
   }
-  if(typeof listLength !=="number"){
-    throw Error ("listLength not a number")
+  if (typeof listLength !== "number") {
+    throw Error("Parameter is not a number!");
+  }
 
-  }
   if (behavior !== "smooth" && behavior !== "instance" && behavior !== "auto") {
-     throw Error ("behavior not good")
+    throw Error("behavior not good");
   }
- 
 
   return;
 };
-
-
-
