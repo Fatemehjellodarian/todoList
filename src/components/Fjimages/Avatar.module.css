@@ -1,14 +1,14 @@
 .female {
   position: absolute;
-  left: 470px;
-  top: 25px;
+  left: 440px;
+  top: 3px;
   width: 50px;
 }
 
 .male {
   position: absolute;
-  left: 430px;
-  top: 12px;
+  left: 417px;
+  bottom:367px;
   width: 120px;
 }
 

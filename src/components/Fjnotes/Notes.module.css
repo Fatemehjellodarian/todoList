@@ -1,14 +1,17 @@
 .notes {
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   list-style: none;
-  margin-right: 4rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: rgb(118, 182, 246);
   font-size: 14px;
+  height: 150px;
+  margin-right:70px;
 }
+
 .deleteBtn {
   border: none;
   cursor: pointer;
@@ -16,6 +19,5 @@
   background: rgb(93, 165, 237);
   color: #fff;
   font-size: 15px;
-  transition: all 0.5s;
-  margin-top: 1rem;
+  margin-top:16px;
 }
