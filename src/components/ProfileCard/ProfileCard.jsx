@@ -95,48 +95,42 @@ import InputAge from "../DateInput/InputAge";
 import { idGenerator, scrollToLastItem } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
-const canSubmit_V2 = ({ name, gender, age, lastName }) => {
-  return name && gender && age && lastName;
+const canSubmit_V2 = ({ formData }) => {
+  return formData && gender;
 };
 
-export default function ProfileCard() {
+export default function ProfileCard({ gender, setGender }) {
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
     age: "",
-    gender: "",
   });
 
   const containerRef = useRef(null);
   const [list, setList] = useState([]);
   console.log(list);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+  const handleChange = ({ target: { value } }) => {
+    setFormData(value);
   };
 
-  const handleSelect = (value) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      gender: value,
-    }));
+  const handleSelect = ({ target: { value } }) => {
+    setGender(value);
   };
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));
 
   const handleSubmit = () => {
+    setGender("");
+
     setList([
       ...list,
       {
         name: formData.name,
         lastName: formData.lastName,
         age: formData.age,
-        gender: formData.gender,
+        gender: gender,
         id: idGenerator(),
       },
     ]);
@@ -144,7 +138,6 @@ export default function ProfileCard() {
       name: "",
       lastName: "",
       age: "",
-      gender: "",
     });
   };
 
@@ -180,9 +173,9 @@ export default function ProfileCard() {
         name="age"
         placeholder="AGE"
       />
-      <Multiple value={formData.gender} onChange={handleSelect} />
+      <Multiple value={gender} onChange={handleSelect} />
       {canSubmit_V2(formData) ? (
-        <ButtonTodo onClick={handleSubmit} />
+        <ButtonTodo handleSubmit={handleSubmit} formData={formData} />
       ) : (
         <button className={styles.disable}></button>
       )}

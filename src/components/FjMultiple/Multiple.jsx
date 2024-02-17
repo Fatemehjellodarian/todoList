@@ -1,5 +1,6 @@
 import style from "./Multiple.module.css";
-const Multiple = ({ formData, handleSelect }) => {
+const Multiple = ({ gender, handleSelect }) => {
+
   const optionsList = [
     { id: 3, value: "gender", text: "gender" },
     { id: "1", value: "female", text: "female" },
@@ -12,7 +13,7 @@ const Multiple = ({ formData, handleSelect }) => {
       <select
         className={style.multiple}
         id="select"
-        value={formData.gender}
+        value={gender}
         onChange={handleSelect}
       >
         {optionsList.map(({ value, text, id }) => (

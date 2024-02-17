@@ -1,12 +1,12 @@
 import style from "./DateInput.module.css";
 
-function InputAge({ formData, handleChange }) {
+function InputAge({ age , handleChange }) {
   return (
     <input
       className={style.input}
       placeholder="Age"
       type="date"
-      value={formData.age}
+      value={age}
       onChange={handleChange}
     />
   );

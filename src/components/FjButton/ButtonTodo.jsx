@@ -1,7 +1,7 @@
 import style from "./ButtonTodo.module.css";
 
-const ButtonTodo = ({ handleOnsubmit}) => (
-  <button className={style.buttonTodo} onClick={handleOnsubmit} >
+const ButtonTodo = ({ handleSubmit}) => (
+  <button className={style.buttonTodo} onClick={handleSubmit} >
     save
   </button>
 );
