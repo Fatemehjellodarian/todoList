@@ -1,16 +1,16 @@
 import styles from "./Avatar.module.css";
 import { PICTURES } from "../../helpers/constants";
 
-const Avatar = ({ gender }) => {
+const Avatar = ({ formData }) => {
   return (
     <div className={styles.avatarView}>
-      {gender === "female" ? (
+      {formData.gender === "female" ? (
         <img
           className={styles.female}
           src={PICTURES.female.url}
           alt={PICTURES.female.alt}
         />
-      ) : gender === "male" ? (
+      ) : formData.gender === "male" ? (
         <img
           className={styles.male}
           src={PICTURES.male.url}
