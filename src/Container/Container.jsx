@@ -4,10 +4,17 @@ import ProfileCard from "../components/ProfileCard/ProfileCard";
 import Layout from "../components/Layout/Layout";
 
 function Container() {
+  const [formData, setFormData] = useState({
+    name: "",
+    lastName: "",
+    age: "",
+    gender: "",
+  });
+
   return (
     <Layout>
-      <Avatar />
-      <ProfileCard />
+      <Avatar gender={formData.gender} />
+      <ProfileCard formData={formData} setFormData={setFormData} />
     </Layout>
   );
 }

@@ -98,18 +98,11 @@ const canSubmit = ({ name, gender, age, lastName }) => {
   return name && gender && age && lastName;
 };
 
-const ProfileCard = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    lastName: "",
-    age: "",
-    gender: "",
-  });
+const ProfileCard = ({ formData, setFormData }) => {
   const [list, setList] = useState([]);
   const containerRef = useRef(null);
 
-  const handleInputChange = (e, field) => {
-    const { value } = e.target;
+  const handleInputChange = ({ target: { value } }, field) => {
     setFormData((prevState) => ({ ...prevState, [field]: value }));
   };
 

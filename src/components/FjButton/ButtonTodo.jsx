@@ -5,6 +5,5 @@ const ButtonTodo = ({ handleOnsubmit }) => (
     save
   </button>
 );
-console.log(ButtonTodo);
 
 export default ButtonTodo;
