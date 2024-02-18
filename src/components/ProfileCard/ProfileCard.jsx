@@ -86,11 +86,10 @@
 // }
 
 import React, { useEffect, useRef, useState } from "react";
-import Input from "../FjInput/Input";
-import Multiple from "../FjMultiple/Multiple";
-import ButtonTodo from "../FjButton/ButtonTodo";
-import Notes from "../Fjnotes/Notes";
 import { idGenerator, scrollToLastItem } from "../../helpers/funcs";
+import Input from "../FjInput/Input";
+import ButtonTodo from "../FjButton/ButtonTodo";
+import Notes from "../FjNotes/Notes";
 import styles from "./ProfileCard.module.css";
 
 const canSubmit = ({ name, gender, age, lastName }) => {
@@ -155,10 +154,12 @@ const ProfileCard = ({ formData, setFormData }) => {
           onChange={(e) => handleInputChange(e, "age")}
           type="date"
         />
-        <Multiple
-          name={formData.gender}
-          handleInputChange={(e) => handleInputChange(e, "gender")}
+        <Input
+          value={formData.gender}
+          onChange={(e) => handleInputChange(e, "gender")}
+          type="select"
         />
+        
         {canSubmit(formData) ? (
           <ButtonTodo handleOnsubmit={handleOnsubmit} />
         ) : (
