@@ -142,6 +142,7 @@ const ProfileCard = ({ formData, setFormData }) => {
           value={formData.name}
           onChange={(e) => handleInputChange(e, "name")}
           placeholder="Name"
+          type="text"
         />
         <Input
           value={formData.lastName}
@@ -159,7 +160,7 @@ const ProfileCard = ({ formData, setFormData }) => {
           onChange={(e) => handleInputChange(e, "gender")}
           type="select"
         />
-        
+
         {canSubmit(formData) ? (
           <ButtonTodo handleOnsubmit={handleOnsubmit} />
         ) : (

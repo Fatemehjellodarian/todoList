@@ -25,16 +25,28 @@ const Input = ({ placeholder, onChange, value, type }) => {
         </select>
       </div>
     );
-  } else {
+  } if (type === "text") {
     return (
       <input
         className={style.input}
         placeholder={placeholder}
         onChange={onChange}
         value={value}
-        type={type}
+        type="text"
       />
-    );
-  }
-};
+    );}
+    if (type === "date") {
+      return(
+      <input
+      className={style.input}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+      type="date"
+    />);
+
+      
+    }
+  };
+
 export default Input;
