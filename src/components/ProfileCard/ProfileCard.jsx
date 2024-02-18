@@ -95,15 +95,16 @@ import InputAge from "../DateInput/InputAge";
 import { idGenerator, scrollToLastItem } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
-const canSubmit_V2 = ({ formData }) => {
-  return formData && gender;
+const canSubmit_V2 = (formData) => {
+  return formData;
 };
 
-export default function ProfileCard({ gender, setGender }) {
+export default function ProfileCard() {
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
     age: "",
+    gender: "",
   });
 
   const containerRef = useRef(null);
@@ -114,23 +115,24 @@ export default function ProfileCard({ gender, setGender }) {
     setFormData(value);
   };
 
-  const handleSelect = ({ target: { value } }) => {
-    setGender(value);
-  };
+  // const handleSelect = (value) => {
+  //   setFormData((prevFormData) => ({
+  //     ...prevFormData,
+  //     gender: value,
+  //   }));
+  // };
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));
 
   const handleSubmit = () => {
-    setGender("");
-
     setList([
       ...list,
       {
         name: formData.name,
         lastName: formData.lastName,
         age: formData.age,
-        gender: gender,
+        gender: formData.gender,
         id: idGenerator(),
       },
     ]);
@@ -138,6 +140,7 @@ export default function ProfileCard({ gender, setGender }) {
       name: "",
       lastName: "",
       age: "",
+      gender: "",
     });
   };
 
@@ -173,9 +176,9 @@ export default function ProfileCard({ gender, setGender }) {
         name="age"
         placeholder="AGE"
       />
-      <Multiple value={gender} onChange={handleSelect} />
+      <Multiple value={formData.gender} onChange={handleChange} />
       {canSubmit_V2(formData) ? (
-        <ButtonTodo handleSubmit={handleSubmit} formData={formData} />
+        <ButtonTodo onClick={handleSubmit} />
       ) : (
         <button className={styles.disable}></button>
       )}
