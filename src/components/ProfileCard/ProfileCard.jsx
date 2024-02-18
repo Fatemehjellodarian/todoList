@@ -90,7 +90,6 @@ import Input from "../FjInput/Input";
 import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
 import Notes from "../Fjnotes/Notes";
-import InputAge from "../DateInput/InputAge";
 import { idGenerator, scrollToLastItem } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
@@ -149,10 +148,12 @@ const ProfileCard = ({ formData, setFormData }) => {
           value={formData.lastName}
           onChange={(e) => handleInputChange(e, "lastName")}
           placeholder="Last Name"
+          type="text"
         />
-        <InputAge
-          name={formData.age}
-          handleInputChange={(e) => handleInputChange(e, "age")}
+        <Input
+          value={formData.age}
+          onChange={(e) => handleInputChange(e, "age")}
+          type="date"
         />
         <Multiple
           name={formData.gender}
