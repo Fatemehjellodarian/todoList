@@ -85,8 +85,7 @@
 //   );
 // }
 
-import React, { useEffect, useRef } from "react";
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Input from "../FjInput/Input";
 import Multiple from "../FjMultiple/Multiple";
 import ButtonTodo from "../FjButton/ButtonTodo";
@@ -95,44 +94,33 @@ import InputAge from "../DateInput/InputAge";
 import { idGenerator, scrollToLastItem } from "../../helpers/funcs";
 import styles from "./ProfileCard.module.css";
 
-const canSubmit_V2 = (formData) => {
-  return formData;
+const canSubmit = ({ name, gender, age, lastName }) => {
+  return name && gender && age && lastName;
 };
 
-export default function ProfileCard() {
+const ProfileCard = () => {
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
     age: "",
     gender: "",
   });
-
-  const containerRef = useRef(null);
   const [list, setList] = useState([]);
-  console.log(list);
+  const containerRef = useRef(null);
 
-  const handleChange = ({ target: { value } }) => {
-    setFormData(value);
+  const handleInputChange = (e, field) => {
+    const { value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [field]: value }));
   };
-
-  // const handleSelect = (value) => {
-  //   setFormData((prevFormData) => ({
-  //     ...prevFormData,
-  //     gender: value,
-  //   }));
-  // };
 
   const handleDelete = (id) =>
     setList((notes) => notes.filter((n) => n.id !== id));
 
-  const handleSubmit = () => {
-    setList([
-      ...list,
+  const handleOnsubmit = () => {
+    setList((prevList) => [
+      ...prevList,
       {
-        name: formData.name,
-        lastName: formData.lastName,
-        age: formData.age,
-        gender: formData.gender,
+        ...formData,
         id: idGenerator(),
       },
     ]);
@@ -156,34 +144,36 @@ export default function ProfileCard() {
   }, [list]);
 
   return (
-    <div className={styles.inner} ref={containerRef}>
-      <h1 className={styles.h1}>welcome</h1>
-      <Input
-        value={formData.name}
-        onChange={handleChange}
-        name="name"
-        placeholder="NAME"
-      />
-      <Input
-        value={formData.lastName}
-        onChange={handleChange}
-        name="lastName"
-        placeholder="LAST NAME"
-      />
-      <InputAge
-        value={formData.age}
-        onChange={handleChange}
-        name="age"
-        placeholder="AGE"
-      />
-      <Multiple value={formData.gender} onChange={handleChange} />
-      {canSubmit_V2(formData) ? (
-        <ButtonTodo onClick={handleSubmit} />
-      ) : (
-        <button className={styles.disable}></button>
-      )}
-
-      <Notes handleDelete={handleDelete} list={list} />
-    </div>
+    <>
+      <div className={styles.inner} ref={containerRef}>
+        <h1 className={styles.h1}>Welcome</h1>
+        <Input
+          value={formData.name}
+          onChange={(e) => handleInputChange(e, "name")}
+          placeholder="Name"
+        />
+        <Input
+          value={formData.lastName}
+          onChange={(e) => handleInputChange(e, "lastName")}
+          placeholder="Last Name"
+        />
+        <InputAge
+          name={formData.age}
+          handleInputChange={(e) => handleInputChange(e, "age")}
+        />
+        <Multiple
+          name={formData.gender}
+          handleInputChange={(e) => handleInputChange(e, "gender")}
+        />
+        {canSubmit(formData) ? (
+          <ButtonTodo handleOnsubmit={handleOnsubmit} />
+        ) : (
+          <button className={styles.disable}></button>
+        )}
+        <Notes handleDelete={handleDelete} list={list} />
+      </div>
+    </>
   );
-}
+};
+
+export default ProfileCard;
